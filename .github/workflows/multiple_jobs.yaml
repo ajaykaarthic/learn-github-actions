@@ -2,12 +2,15 @@ name: Multiple sequence jobs
 
 on: push
 
+env:
+    USER_NAME: "ajay"
+    
 jobs:
     job1:
       runs-on: ubuntu-latest
       steps:
       - name: write hello world
-        run: echo "hello world" >> dummy.txt
+        run: echo "hello ${{ env.USER_NAME }}" >> dummy.txt
   
       - name: upload dummy.txt
         uses: actions/upload-artifact@v3
